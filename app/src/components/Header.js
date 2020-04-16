@@ -27,8 +27,8 @@ const Header = (props) => {
   return (
     <div className="container notification is-bold is-dark">
       <h1 className="title">
-        COV-2-SARS Acute Respiratory Syndrome (COVID-19) Statistics Tracking
-        Tool
+        COVID 19 - Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2)
+        Statistics Tracking Tool
       </h1>
       <h2 className="subtitle">
         Select your country for real-time infection data.
@@ -53,7 +53,7 @@ const Header = (props) => {
             return (
               <div
                 onClick={() => {
-                  props.fetchData(e.name);
+                  props.fetchData(e.code);
                 }}
               >
                 {e.name}

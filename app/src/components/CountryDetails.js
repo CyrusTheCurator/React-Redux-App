@@ -12,10 +12,26 @@ const CountryDetails = (props) => {
             <div style={{ color: "red" }}>*error loading data*</div>
           )}
           <div className="notification is-bold margin-fixer">
-            {/* <h3 className="subtitle">
-              <a href={props.dinoInfo.url}>{props.dinoInfo.name}</a>
-            </h3>
-            <p>{props.dinoInfo.text}</p> */}
+            <div className="resultsContainer">
+              {props.name ? (
+                <>
+                  <h3 className="subtitle">
+                    <h4 className="topTitle">{props.name}</h4>
+                    <p>Total Cases: {props.totalCases}</p>
+                    <p>Total Deaths: {props.totalDeaths}</p>
+                    <p>Total Recovered: {props.totalRecovered}</p>
+                  </h3>
+                  <h3 className="subtitle global">
+                    <h4 className="topTitle">Global Data</h4>
+                    <p>Total Cases: {props.globalVals.TotalConfirmed}</p>
+                    <p>Total Deaths: {props.globalVals.TotalDeaths}</p>
+                    <p>Total Recovered: {props.globalVals.TotalRecovered}</p>
+                  </h3>{" "}
+                </>
+              ) : (
+                <p>Select a country to retrieve data</p>
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -25,9 +41,11 @@ const CountryDetails = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    countryInfo: state.countryInfo,
-    isLoading: state.isLoading,
-    error: state.error,
+    name: state.countryInfo.name,
+    totalCases: state.countryInfo.totalCases,
+    totalDeaths: state.countryInfo.totalDeaths,
+    totalRecovered: state.countryInfo.totalRecovered,
+    globalVals: state.countryInfo.globalVals,
   };
 };
 
